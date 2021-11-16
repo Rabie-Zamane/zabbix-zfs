@@ -145,9 +145,9 @@ def arc_stats():
 
     return {
         'l1': {
-            'size': r['size'],
+            'size': r['c'],
             'hitrate': r['hits'] / l1 * 100 if l1 else 0,
-            'free': r['memory_available_bytes'],
+            'free': r['c'] - r['data_size'],
             'meta_used': r['arc_meta_used'],
             'meta_limit': r['arc_meta_limit'],
         },
