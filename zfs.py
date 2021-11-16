@@ -111,7 +111,7 @@ def vdev_list(errors):
         'frag': int(x[6]) if x[6].isdigit() else 0,
         'usage': int(x[7]) if x[7].isdigit() else 0,
         'online': int(x[9] == 'ONLINE'),
-        'errors': errors[x[0]],
+        'errors': errors[x[0]] if isinstance(errors, dict) and x[0] in errors else {"read": 0,"write": 0,"cksum": 0},
     } for x in r if x[0].startswith('/')}
 
 
